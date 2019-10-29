@@ -1,6 +1,6 @@
 {
   "name": "@standardlabs/use-input",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Simple react hooks for using inputs",
   "main": "lib/index.js",
   "scripts": {
