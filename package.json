@@ -1,7 +1,7 @@
 {
-  "name": "@standardlabs/use-input",
-  "version": "0.0.1",
-  "description": "Simple react hooks for using inputs",
+  "name": "@standardlabs/react-hooks",
+  "version": "0.0.1-pre.0",
+  "description": "Collection of simple useful react hooks",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",
@@ -9,23 +9,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/standardlabs/use-input.git"
+    "url": "https://github.com/standardlabs/react-hooks.git"
   },
   "keywords": [
     "React",
-    "hooks",
-    "input",
-    "useInput"
+    "hooks"
   ],
   "author": "Josh Gummersall",
   "license": "ISC",
   "peerDependencies": {
-    "react": "^v16.8.0"
+    "react": "^16.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "react": "16.10.2",
+    "react-dom": "16.10.2"
   }
 }
