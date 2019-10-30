@@ -64,6 +64,7 @@ The above is a contrived example. Generally the deferred versions of these hooks
 ## useOnChange/useDeferredOnChange
 
 `useOnChange(initialState, [transform]) => [value, onChange, setValue]`
+
 `useOnChangeDeferred(initialState, waitMs, [transform]) => [{value deferred}, onChange, setValue]`
 
 This hook is best used for form inputs that expose an `onChange` handler. The optional `transform` argument allows you parse event data before updating `value`. This library exports `asInt(value) => Int` and `asFloat(value) => Float` to make it easy to hold integer or float state. The deferred version is best used for form inputs that drive expensive operations like rendering charts or API calls.
@@ -95,6 +96,7 @@ Again, this is a bit contrived. Imagine a `useEffect` that calls a search API as
 ## useOnChecked/useDeferredOnChecked
 
 `useOnChecked(initialState, [transform]) => [value, onChange, setValue]`
+
 `useDeferredOnChecked(initialState, wait, [transform]) => [{value, deferred}, onChange, setValue]`
 
 Specialized versions of `useOnChange` and `useDeferredOnChange` that are tailored to checkbox inputs. Examples of these are left as an exercise to the reader.
@@ -102,6 +104,7 @@ Specialized versions of `useOnChange` and `useDeferredOnChange` that are tailore
 ## useToggle/useDeferredToggle
 
 `useToggle(initialState) => [value, onToggle, setValue]`
+
 `useDeferredToggle(initialState, wait) => [{value, deferred}, onToggle, setValue]`
 
 This hook represents a toggle or boolean value. The `onToggle` function will alternate `value` from true to false and vice versa.
