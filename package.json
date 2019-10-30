@@ -1,6 +1,6 @@
 {
   "name": "@standardlabs/react-hooks",
-  "version": "0.0.1-pre.0",
+  "version": "0.0.1-pre.1",
   "description": "Collection of simple useful react hooks",
   "main": "lib/index.js",
   "scripts": {
@@ -27,5 +27,8 @@
     "prettier": "^1.18.2",
     "react": "16.10.2",
     "react-dom": "16.10.2"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8"
   }
 }
