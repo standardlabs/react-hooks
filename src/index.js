@@ -1,7 +1,9 @@
 import debounce from "lodash.debounce";
 import { useCallback, useState } from "react";
 
-const identity = a => a;
+export const identity = a => a;
+export const asInt = value => parseInt(value, 10);
+export const asFloat = value => parseFloat(value, 10);
 
 export const useDebounced = (initialState, wait) => {
   const [state, setState] = useState(initialState);
@@ -60,3 +62,12 @@ export const useDeferredOnChecked = buildOnHandler(
   "checked",
   useDeferredArgs
 );
+
+const buildToggleHandler = useFn => (...args) => {
+  const [value, setValue] = useFn(...args);
+  const onToggle = useCallback(() => setValue(value => !value), [setValue]);
+  return [value, onToggle, setValue];
+};
+
+export const useToggle = buildToggleHandler(useState);
+export const useDeferredToggle = buildToggleHandler(useDeferred);
