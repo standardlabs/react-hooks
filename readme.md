@@ -110,7 +110,7 @@ Specialized versions of `useOnChange` and `useDeferredOnChange` that are tailore
 This hook represents a toggle or boolean value. The `onToggle` function will alternate `value` from true to false and vice versa.
 
 ```jsx
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useToggle, useDeferredToggle} from '@standardlabs/react-hooks'
 
 const Example = () => {
