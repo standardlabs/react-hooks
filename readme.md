@@ -100,26 +100,3 @@ Again, this is a bit contrived. Imagine a `useEffect` that calls a search API as
 `useDeferredOnChecked(initialState, wait, [transform]) => [{value, deferred}, onChange, setValue]`
 
 Specialized versions of `useOnChange` and `useDeferredOnChange` that are tailored to checkbox inputs. Examples of these are left as an exercise to the reader.
-
-## useToggle/useDeferredToggle
-
-`useToggle(initialState) => [value, onToggle, setValue]`
-
-`useDeferredToggle(initialState, wait) => [{value, deferred}, onToggle, setValue]`
-
-This hook represents a toggle or boolean value. The `onToggle` function will alternate `value` from true to false and vice versa.
-
-```jsx
-import React from 'react'
-import {useToggle, useDeferredToggle} from '@standardlabs/react-hooks'
-
-const Example = () => {
-  const [normal, onToggle] = useToggle(true)
-  const [deferred, onToggleDeferred] = useDeferredToggle(true, 150)
-
-  return <div>
-    <button onClick={onToggle}>Normal {normal ? 'On' : 'Off'}</button>
-    <button onClick={onToggleDeferred}>Deferred {deferred.deferred ? 'On' : 'Off'}</button>
-  </div>
-}
-```

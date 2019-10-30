@@ -62,12 +62,3 @@ export const useDeferredOnChecked = buildOnHandler(
   "checked",
   useDeferredArgs
 );
-
-const buildToggleHandler = useFn => (...args) => {
-  const [value, setValue] = useFn(...args);
-  const onToggle = useCallback(() => setValue(value => !value), [setValue]);
-  return [value, onToggle, setValue];
-};
-
-export const useToggle = buildToggleHandler(useState);
-export const useDeferredToggle = buildToggleHandler(useDeferred);
