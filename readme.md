@@ -1,6 +1,18 @@
 # @standardlabs/react-hooks
 
-This library is a collection of simple but useful react hooks. Below is a description of the most important ones.
+This library is a collection of simple but useful react hooks.
+
+## Installation
+
+To install using NPM:
+```sh
+npm install @standardlabs/react-hooks
+```
+
+To install using Yarn:
+```sh
+yarn add @standardlabs/react-hooks
+```
 
 ## useDebounced
 
