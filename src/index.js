@@ -62,3 +62,26 @@ export const useDeferredOnChecked = buildOnHandler(
   "checked",
   useDeferredArgs
 );
+
+export const useToggle = initialState => {
+  const [value, setValue] = useState(initialState);
+  const onToggle = useCallback(() => setValue(value => !value), [setValue]);
+  return [value, onToggle, setValue];
+};
+
+export const useDeferredToggle = (initialState, wait) => {
+  const [value, setValue] = useState(initialState);
+  const [deferred, setDeferred] = useDebounced(initialState, wait);
+
+  const set = useCallback(
+    (...args) => {
+      setDeferred(...args);
+      return setValue(...args);
+    },
+    [setDeferred, setValue]
+  );
+
+  const onToggle = useCallback(() => set(!value), [set, value]);
+
+  return [{ value, deferred }, onToggle, set];
+};
