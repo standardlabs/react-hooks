@@ -23,23 +23,40 @@ export const normal = () => {
   return (
     <Story>
       <h1>useDeferred</h1>
-      <Code>{`const [value, setValue] = useDeferred({}, 1000)`}</Code>
+      <Code>{`
+const [val, set] = useDeferred({}, 1000);
+
+useEffect(() => {
+  set({ height: window.innerHeight, width: window.innerWidth });
+
+  const handler = e =>
+    set({ height: e.target.innerHeight, width: e.target.innerWidth });
+
+  window.addEventListener("resize", handler);
+
+  return () => window.removeEventListener("resize", handler);
+}, []);
+      `}</Code>
       <Table>
         <thead>
           <tr>
-            <th>Type</th>
+            <th>Variable</th>
             <th>Height</th>
             <th>Width</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Value</td>
+            <td>
+              <pre>val.value</pre>
+            </td>
             <td>{val.value.height}px</td>
             <td>{val.value.width}px</td>
           </tr>
           <tr>
-            <td>Deferred</td>
+            <td>
+              <pre>val.deferred</pre>
+            </td>
             <td>{val.deferred.height}px</td>
             <td>{val.deferred.width}px</td>
           </tr>

@@ -46,7 +46,6 @@ export const Story = styled.div`
   input {
     font-size: 16px;
     padding: 6px 12px;
-    text-align: center;
   }
 
   button {

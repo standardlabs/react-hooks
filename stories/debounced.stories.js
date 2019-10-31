@@ -41,12 +41,16 @@ useEffect(() => {
       <Table>
         <thead>
           <tr>
+            <th>Variable</th>
             <th>Height</th>
             <th>Width</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td>
+              <pre>value</pre>
+            </td>
             <td>{val.height}px</td>
             <td>{val.width}px</td>
           </tr>

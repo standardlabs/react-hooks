@@ -12,47 +12,81 @@ export const normal = () => {
   return (
     <Story>
       <h1>useOnChange</h1>
-      <Code>{`const [value, onChange] = useOnChange("")`}</Code>
-      <form>
-        <p>
-          <input
-            placeholder="Enter some text"
-            type="text"
-            value={value}
-            onChange={onChange}
-          />
-        </p>
-      </form>
+      <Code>{`
+const [value, onChange] = useOnChange("");
+
+return <input type="text" value={value} onChange={onChange} />
+      `}</Code>
+      <Table>
+        <thead>
+          <tr>
+            <th>Variable</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <pre>value</pre>
+            </td>
+            <td>
+              <input
+                placeholder="Enter some text"
+                type="text"
+                value={value}
+                onChange={onChange}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </Table>
       <p>This is a very simple example of the onChange handler.</p>
     </Story>
   );
 };
 
 export const deferred = () => {
-  const [value, onChange] = useDeferredOnChange("", 250);
+  const [val, onChange] = useDeferredOnChange("", 250);
 
   return (
     <Story>
       <h1>useDeferredOnChange</h1>
-      <Code>{`const [value, onChange] = useDeferredOnChange("", 250)`}</Code>
-      <form>
-        <p>
-          <input
-            placeholder="Immediate value"
-            type="text"
-            value={value.value}
-            onChange={onChange}
-          />
-        </p>
-        <p>
-          <input
-            placeholder="Deferred value"
-            type="text"
-            disabled
-            value={value.deferred}
-          />
-        </p>
-      </form>
+      <Code>{`
+const [val, onChange] = useDeferredOnChange("", 250);
+
+return <input type="text" value={val.value} onChange={onChange} />
+      `}</Code>
+      <Table>
+        <thead>
+          <tr>
+            <th>Variable</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <pre>val.value</pre>
+            </td>
+            <td>
+              <input
+                placeholder="Enter some text"
+                type="text"
+                value={val.value}
+                onChange={onChange}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre>val.deferred</pre>
+            </td>
+            <td>
+              <input disabled type="text" value={val.deferred} />
+            </td>
+          </tr>
+        </tbody>
+      </Table>
       <p>
         This is a bit more interesting. Try typing to see how the deferred input
         reacts.
