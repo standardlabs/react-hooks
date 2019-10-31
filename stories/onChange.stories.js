@@ -1,5 +1,5 @@
 import React from "react";
-import { Story } from "./story";
+import { Code, Story, Table } from "./components";
 import { useOnChange, useDeferredOnChange } from "../src";
 
 export default {
@@ -12,7 +12,7 @@ export const normal = () => {
   return (
     <Story>
       <h1>useOnChange</h1>
-      <pre>const [value, onChange] = useOnChange("")</pre>
+      <Code>{`const [value, onChange] = useOnChange("")`}</Code>
       <form>
         <p>
           <input
@@ -34,7 +34,7 @@ export const deferred = () => {
   return (
     <Story>
       <h1>useDeferredOnChange</h1>
-      <pre>const [value, onChange] = useDeferredOnChange("", 250)</pre>
+      <Code>{`const [value, onChange] = useDeferredOnChange("", 250)`}</Code>
       <form>
         <p>
           <input

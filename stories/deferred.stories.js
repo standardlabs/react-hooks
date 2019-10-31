@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Story } from "./story";
+import { Code, Story, Table } from "./components";
 import { useDeferred } from "../src";
 
 export default {
@@ -23,13 +23,28 @@ export const normal = () => {
   return (
     <Story>
       <h1>useDeferred</h1>
-      <pre>const [value, setValue] = useDeferred({`{}`}, 1000)</pre>
-      <p>
-        Value: {val.value.height}px by {val.value.width}px
-      </p>
-      <p>
-        Deferred: {val.deferred.height}px by {val.deferred.width}px
-      </p>
+      <Code>{`const [value, setValue] = useDeferred({}, 1000)`}</Code>
+      <Table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Height</th>
+            <th>Width</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Value</td>
+            <td>{val.value.height}px</td>
+            <td>{val.value.width}px</td>
+          </tr>
+          <tr>
+            <td>Deferred</td>
+            <td>{val.deferred.height}px</td>
+            <td>{val.deferred.width}px</td>
+          </tr>
+        </tbody>
+      </Table>
       <p>Go ahead and resize the window a bit to see how it works.</p>
     </Story>
   );

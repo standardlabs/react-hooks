@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { Story } from "./story";
+import { Code, Story, Table } from "./components";
 import { useDebounced } from "../src";
 
 export default {
@@ -24,10 +24,34 @@ export const normal = () => {
   return (
     <Story>
       <h1>useDebounced</h1>
-      <pre>const [value, setValue] = useDebounced({`{}`}, 150)</pre>
-      <p>
-        Window: {val.height}px by {val.width}px
-      </p>
+      <Code>{`
+const [value, setValue] = useDebounced({}, 150);
+
+useEffect(() => {
+  set({ height: window.innerHeight, width: window.innerWidth });
+
+  const handler = e =>
+    set({ height: e.target.innerHeight, width: e.target.innerWidth });
+
+  window.addEventListener("resize", handler);
+
+  return () => window.removeEventListener("resize", handler);
+}, []);
+      `}</Code>
+      <Table>
+        <thead>
+          <tr>
+            <th>Height</th>
+            <th>Width</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{val.height}px</td>
+            <td>{val.width}px</td>
+          </tr>
+        </tbody>
+      </Table>
       <p>Go ahead and resize the window a bit to see how it works.</p>
     </Story>
   );
