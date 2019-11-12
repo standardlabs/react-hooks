@@ -32,7 +32,7 @@ const buildOnHandler = (useFn, key, argFn) => (...args) => {
   const [value, setValue] = useFn(initialState, wait);
   const onChange = useCallback(
     ({ target }) => setValue(transform(target[key])),
-    [setValue]
+    [setValue, transform]
   );
 
   return [value, onChange, setValue];
