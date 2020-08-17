@@ -1,13 +1,16 @@
 import debounce from "lodash.debounce";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
-export const identity = a => a;
-export const asInt = value => parseInt(value, 10);
-export const asFloat = value => parseFloat(value, 10);
+export const identity = (a) => a;
+export const asInt = (value) => parseInt(value, 10);
+export const asFloat = (value) => parseFloat(value, 10);
 
 export const useDebounced = (initialState, wait) => {
   const [state, setState] = useState(initialState);
-  const setStateDebounced = useCallback(debounce(setState, wait), [setState]);
+  const setStateDebounced = useMemo(() => debounce(setState, wait), [
+    setState,
+    wait,
+  ]);
   return [state, setStateDebounced];
 };
 
@@ -38,15 +41,15 @@ const buildOnHandler = (useFn, key, argFn) => (...args) => {
   return [value, onChange, setValue];
 };
 
-const useStateArgs = args => ({
+const useStateArgs = (args) => ({
   initialState: args[0],
-  transform: args[1]
+  transform: args[1],
 });
 
-const useDeferredArgs = args => ({
+const useDeferredArgs = (args) => ({
   initialState: args[0],
   wait: args[1],
-  transform: args[2]
+  transform: args[2],
 });
 
 export const useOnChange = buildOnHandler(useState, "value", useStateArgs);
@@ -63,9 +66,9 @@ export const useDeferredOnChecked = buildOnHandler(
   useDeferredArgs
 );
 
-export const useToggle = initialState => {
+export const useToggle = (initialState) => {
   const [value, setValue] = useState(initialState);
-  const onToggle = useCallback(() => setValue(value => !value), [setValue]);
+  const onToggle = useCallback(() => setValue((value) => !value), [setValue]);
   return [value, onToggle, setValue];
 };
 
