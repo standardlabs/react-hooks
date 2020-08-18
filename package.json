@@ -1,6 +1,6 @@
 {
   "name": "@standardlabs/react-hooks",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Collection of simple useful react hooks",
   "main": "lib/index.js",
   "publishConfig": {
