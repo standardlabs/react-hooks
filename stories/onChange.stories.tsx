@@ -3,7 +3,7 @@ import { Code, Story, Table } from "./components";
 import { useOnChange, useDeferredOnChange } from "../src";
 
 export default {
-  title: "Hooks|useOnChange"
+  title: "Hooks|useOnChange",
 };
 
 export const normal = () => {

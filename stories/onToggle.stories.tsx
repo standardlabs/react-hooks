@@ -3,7 +3,7 @@ import { Code, Story, Table } from "./components";
 import { useToggle, useDeferredToggle } from "../src";
 
 export default {
-  title: "Hooks|useToggle"
+  title: "Hooks|useToggle",
 };
 
 export const normal = () => {

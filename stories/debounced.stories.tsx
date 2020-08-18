@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { Code, Story, Table } from "./components";
-import { useDeferred } from "../src";
+import { useDebounced } from "../src";
 
 export default {
-  title: "Hooks|useDeferred"
+  title: "Hooks|useDebounced",
 };
 
 export const normal = () => {
-  const [val, set] = useDeferred({}, 1000);
+  const [val, set] = useDebounced({ height: 0, width: 0 }, 150);
 
   useEffect(() => {
     set({ height: window.innerHeight, width: window.innerWidth });
 
-    const handler = e =>
+    const handler = (e) =>
       set({ height: e.target.innerHeight, width: e.target.innerWidth });
 
     window.addEventListener("resize", handler);
@@ -22,9 +22,9 @@ export const normal = () => {
 
   return (
     <Story>
-      <h1>useDeferred</h1>
+      <h1>useDebounced</h1>
       <Code>{`
-const [val, set] = useDeferred({}, 1000);
+const [value, setValue] = useDebounced({}, 150);
 
 useEffect(() => {
   set({ height: window.innerHeight, width: window.innerWidth });
@@ -48,17 +48,10 @@ useEffect(() => {
         <tbody>
           <tr>
             <td>
-              <pre>val.value</pre>
+              <pre>value</pre>
             </td>
-            <td>{val.value.height}px</td>
-            <td>{val.value.width}px</td>
-          </tr>
-          <tr>
-            <td>
-              <pre>val.deferred</pre>
-            </td>
-            <td>{val.deferred.height}px</td>
-            <td>{val.deferred.width}px</td>
+            <td>{val.height}px</td>
+            <td>{val.width}px</td>
           </tr>
         </tbody>
       </Table>

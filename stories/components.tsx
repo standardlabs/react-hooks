@@ -15,7 +15,7 @@ const CodeContainer = styled.div`
   }
 `;
 
-export const Code = ({ children }) => (
+export const Code: React.FC<{ children: string }> = ({ children }) => (
   <CodeContainer>
     <SyntaxHighlighter language="javascript" style={docco}>
       {children.trim()}
