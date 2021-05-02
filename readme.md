@@ -1,6 +1,6 @@
 # @standardlabs/react-hooks
 
-This library is a collection of simple but useful react hooks. Check out the [Storybook Demo](https://react-hooks-storybook.standardlabs.dev).
+This library is a collection of simple but useful React hooks.
 
 ## Installation
 
